@@ -449,20 +449,6 @@
                 <form method="POST" action="<?php echo e(route('installer.store', ['step' => 'setup'])); ?>">
                     <?php echo csrf_field(); ?>
 
-                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($purchaseRequired): ?>
-                        <div class="section">
-                            <h3>License Verification</h3>
-                            <div class="fields">
-                                <div class="field full">
-                                    <label for="purchase_code">Purchase code *</label>
-                                    <input id="purchase_code" name="purchase_code" type="text" value="<?php echo e($formData['purchase_code'] ?? ''); ?>" placeholder="Enter the purchase code used for this product" class="<?php echo e($errorBag->has('purchase_code') ? 'input-error' : ''); ?>">
-                                    <div class="hint">The installer verifies the purchase code against the configured licensing service before finishing setup.</div>
-                                    <?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if BLOCK]><![endif]--><?php endif; ?><?php if($errorBag->has('purchase_code')): ?> <div class="field-error"><?php echo e($errorBag->first('purchase_code')); ?></div> <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-                                </div>
-                            </div>
-                        </div>
-                    <?php endif; ?><?php if(\Livewire\Mechanisms\ExtendBlade\ExtendBlade::isRenderingLivewireComponent()): ?><!--[if ENDBLOCK]><![endif]--><?php endif; ?>
-
                     <div class="section">
                         <h3>Website Settings</h3>
                         <div class="fields">

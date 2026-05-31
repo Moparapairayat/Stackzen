@@ -449,20 +449,6 @@
                 <form method="POST" action="{{ route('installer.store', ['step' => 'setup']) }}">
                     @csrf
 
-                    @if ($purchaseRequired)
-                        <div class="section">
-                            <h3>License Verification</h3>
-                            <div class="fields">
-                                <div class="field full">
-                                    <label for="purchase_code">Purchase code *</label>
-                                    <input id="purchase_code" name="purchase_code" type="text" value="{{ $formData['purchase_code'] ?? '' }}" placeholder="Enter the purchase code used for this product" class="{{ $errorBag->has('purchase_code') ? 'input-error' : '' }}">
-                                    <div class="hint">The installer verifies the purchase code against the configured licensing service before finishing setup.</div>
-                                    @if ($errorBag->has('purchase_code')) <div class="field-error">{{ $errorBag->first('purchase_code') }}</div> @endif
-                                </div>
-                            </div>
-                        </div>
-                    @endif
-
                     <div class="section">
                         <h3>Website Settings</h3>
                         <div class="fields">
